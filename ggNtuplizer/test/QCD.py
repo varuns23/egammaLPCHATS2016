@@ -20,7 +20,9 @@ process.MessageLogger.cerr.FwkReport.reportEvery = 1000
 
 process.source = cms.Source("PoolSource",
                             fileNames = cms.untracked.vstring(
-     'file:RunIIFall15MiniAODv2QCD_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCUETP8M1_13TeV_Pythia8.root'
+     #'file:RunIIFall15MiniAODv2QCD_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCUETP8M1_13TeV_Pythia8.root'
+#     'file:/uscmst1b_scratch/lpc1/old_scratch/lpceg/yurii/lovedeep/ggNtuples/HATS2016/CMSSW_7_6_3_patch2/src/ggAnalysis/ggNtuplizer/test/RunIIFall15MiniAODv2QCD_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCUETP8M1_13TeV_Pythia8.root'
+     'root://cmsxrootd-site.fnal.gov//store/user/lovedeep/HATSEGM2016/RunIIFall15MiniAODv2QCD_Pt-40toInf_DoubleEMEnriched_MGG-80toInf_TuneCUETP8M1_13TeV_Pythia8.root'
         ))
 
 #process.load("PhysicsTools.PatAlgos.patSequences_cff")
