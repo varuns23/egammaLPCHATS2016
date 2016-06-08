@@ -6,7 +6,7 @@ cmsrel CMSSW_7_6_3_patch2 <br>
 cd CMSSW_7_6_3_patch2/src <br>
 cmsenv <br>
 git cms-merge-topic -u matteosan1:smearer_76X <br>
-git@github.com:varuns23/egammaLPCHATS2016.git <br>
+git clone git@github.com:varuns23/egammaLPCHATS2016.git <br>
 scram b -j 10 <br>
 
 The above code stores the decision in 64 integer. Each bit represents a decision<br>
