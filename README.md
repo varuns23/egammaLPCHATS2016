@@ -2,6 +2,7 @@
 #### Note that the current head version can be run with CMSSW_7_6_3_patch2
 
 ##### To work with CMSSW_7_6_3_patch2, you do:
+cmsrel CMSSW_7_6_3_patch2
 cd CMSSW_7_6_3_patch2/src <br>
 cmsenv <br>
 git cms-merge-topic -u matteosan1:smearer_76X <br>
