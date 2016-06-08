@@ -18,8 +18,7 @@ void fillPhoHistos::Loop()
 
 
    Long64_t nbytes = 0, nb = 0;
-   //for (Long64_t jentry=0; jentry<nentries;jentry++) {
-   for (Long64_t jentry=0; jentry<10;jentry++) {
+   //for (Long64_t jentry=0; jentry<10;jentry++) {
       Long64_t ientry = LoadTree(jentry);
       if (ientry < 0) break;
       nb = fChain->GetEntry(jentry);   nbytes += nb;
@@ -31,7 +30,7 @@ void fillPhoHistos::Loop()
 	 ////for signal prompt photon when reconstructed photon match to gen photon
 	 if(mc_truth != 1 ) continue;
 	 //    //for bkgs, 
-	 //if( !(mc_truth==2 || mc_truth==3 ) continue;
+	 //if( !(mc_truth==2 || mc_truth==3 )) continue;
 	 // // Fill histograms
 	 hPt->Fill( (*phoEt)[ipho] );
 	 hEta->Fill( (*phoSCEta)[ipho] );
