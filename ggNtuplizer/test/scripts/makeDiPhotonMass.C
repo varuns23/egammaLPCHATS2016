@@ -25,6 +25,7 @@ void makeDiPhotonMass::Loop()
 	 if(fabs((*phoSCEta)[ipho])>1.4442 && fabs((*phoSCEta)[ipho]) < 1.566) continue;
 
 	 int mc_truth = MCTruthMatch(ipho);
+	 if(mc_truth != 1 ) continue;
 
 	 if(phoCut(ipho)) iphotons.push_back(ipho);
       }
@@ -59,15 +60,19 @@ int makeDiPhotonMass::MCTruthMatch(int jpho){
    for(int imc = 0; imc < nMC; ++imc){
       if( mcPID->at(imc) != 22) continue;
       if( mcPt->at(imc) < 20) continue;
-      if( !((*mcStatusFlag)[imc]>>1&1) ) continue;
       bool match_gen = dR((*mcEta)[imc], (*mcPhi)[imc], (*phoSCEta)[jpho], (*phoSCPhi)[jpho]) < 0.05;
       if(match_gen && phoInd < 0) phoInd = imc;
    }
 
-   if(phoInd >= 0)
-      return 1;
-   else
-      return 2;
+   if(phoInd >= 0){
+      if(((*mcParentage)[phoInd]&4)==0) return 1;
+      else
+	 return 2;
+   } else {
+      return 3;
+   }
+
+
 }
 
 bool makeDiPhotonMass::phoCut(int i){

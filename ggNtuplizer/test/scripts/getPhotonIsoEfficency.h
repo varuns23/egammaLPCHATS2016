@@ -19,219 +19,226 @@
 #include "vector"
 
 class getPhotonIsoEfficency {
-public :
-   TTree          *fChain;   //!pointer to the analyzed TTree or TChain
-   Int_t           fCurrent; //!current Tree number in a TChain
+   public :
+      TTree          *fChain;   //!pointer to the analyzed TTree or TChain
+      Int_t           fCurrent; //!current Tree number in a TChain
 
-// Fixed size dimensions of array or collections stored in the TTree if any.
+      // Fixed size dimensions of array or collections stored in the TTree if any.
 
-   // Declaration of leaf types
-   Int_t           run;
-   Long64_t        event;
-   Int_t           lumis;
-   Bool_t          isData;
-   Int_t           nVtx;
-   Int_t           nTrksPV;
-   Bool_t          isPVGood;
-   Bool_t          hasGoodVtx;
-   Float_t         vtx;
-   Float_t         vty;
-   Float_t         vtz;
-   Float_t         rho;
-   Float_t         rhoCentral;
-   Float_t         pthat;
-   Float_t         processID;
-   Float_t         genWeight;
-   Float_t         genHT;
-   TString         *EventTag;
-   Int_t           nMC;
-   vector<int>     *mcPID;
-   vector<float>   *mcVtx;
-   vector<float>   *mcVty;
-   vector<float>   *mcVtz;
-   vector<float>   *mcPt;
-   vector<float>   *mcMass;
-   vector<float>   *mcEta;
-   vector<float>   *mcPhi;
-   vector<float>   *mcE;
-   vector<float>   *mcEt;
-   vector<int>     *mcGMomPID;
-   vector<int>     *mcMomPID;
-   vector<float>   *mcMomPt;
-   vector<float>   *mcMomMass;
-   vector<float>   *mcMomEta;
-   vector<float>   *mcMomPhi;
-   vector<int>     *mcIndex;
-   vector<unsigned short> *mcStatusFlag;
-   vector<int>     *mcParentage;
-   vector<int>     *mcStatus;
-   vector<float>   *mcCalIsoDR03;
-   vector<float>   *mcTrkIsoDR03;
-   vector<float>   *mcCalIsoDR04;
-   vector<float>   *mcTrkIsoDR04;
-   Int_t           nPho;
-   vector<float>   *phoE;
-   vector<float>   *phoEt;
-   vector<float>   *phoEta;
-   vector<float>   *phoPhi;
-   vector<float>   *phoSCE;
-   vector<float>   *phoSCRawE;
-   vector<float>   *phoSCEta;
-   vector<float>   *phoSCPhi;
-   vector<float>   *phoSCEtaWidth;
-   vector<float>   *phoSCPhiWidth;
-   vector<int>     *phohasPixelSeed;
-   vector<int>     *phoEleVeto;
-   vector<float>   *phoR9;
-   vector<float>   *phoHoverE;
-   vector<float>   *phoSigmaIEtaIEtaFull5x5;
-   vector<float>   *phoSigmaIEtaIPhiFull5x5;
-   vector<float>   *phoSigmaIPhiIPhiFull5x5;
-   vector<float>   *phoR9Full5x5;
-   vector<float>   *phoPFChIso;
-   vector<float>   *phoPFPhoIso;
-   vector<float>   *phoPFNeuIso;
-   vector<float>   *phoIDMVA;
-   Int_t           nEle;
-   vector<int>     *eleCharge;
-   vector<float>   *eleEn;
-   vector<float>   *eleSCEn;
-   vector<float>   *eleD0;
-   vector<float>   *eleDz;
-   vector<float>   *elePt;
-   vector<float>   *eleEta;
-   vector<float>   *elePhi;
-   vector<float>   *eleSCEta;
-   vector<float>   *eleSCPhi;
-   vector<float>   *eleSCRawEn;
-   vector<float>   *eleHoverE;
-   vector<float>   *eleEoverP;
-   vector<float>   *eleEoverPout;
-   vector<float>   *eleEoverPInv;
-   vector<float>   *eledEtaAtVtx;
-   vector<float>   *eledPhiAtVtx;
-   vector<float>   *eleSigmaIEtaIEtaFull5x5;
-   vector<float>   *eleSigmaIPhiIPhiFull5x5;
-   vector<int>     *eleConvVeto;
-   vector<int>     *eleMissHits;
-   vector<float>   *elePFChIso;
-   vector<float>   *elePFPhoIso;
-   vector<float>   *elePFNeuIso;
-   vector<float>   *elePFPUIso;
-   vector<float>   *eleIDMVANonTrg;
-   vector<float>   *eleIDMVATrg;
-   vector<float>   *eleR9Full5x5;
-   vector<int>     *eleEcalDrivenSeed;
-   vector<unsigned short> *eleIDbit;
+      // Declaration of leaf types
+      Int_t           run;
+      Long64_t        event;
+      Int_t           lumis;
+      Bool_t          isData;
+      Int_t           nVtx;
+      Int_t           nTrksPV;
+      Bool_t          isPVGood;
+      Bool_t          hasGoodVtx;
+      Float_t         vtx;
+      Float_t         vty;
+      Float_t         vtz;
+      Float_t         rho;
+      Float_t         rhoCentral;
+      Float_t         pthat;
+      Float_t         processID;
+      Float_t         genWeight;
+      Float_t         genHT;
+      TString         *EventTag;
+      Int_t           nMC;
+      vector<int>     *mcPID;
+      vector<float>   *mcVtx;
+      vector<float>   *mcVty;
+      vector<float>   *mcVtz;
+      vector<float>   *mcPt;
+      vector<float>   *mcMass;
+      vector<float>   *mcEta;
+      vector<float>   *mcPhi;
+      vector<float>   *mcE;
+      vector<float>   *mcEt;
+      vector<int>     *mcGMomPID;
+      vector<int>     *mcMomPID;
+      vector<float>   *mcMomPt;
+      vector<float>   *mcMomMass;
+      vector<float>   *mcMomEta;
+      vector<float>   *mcMomPhi;
+      vector<int>     *mcIndex;
+      vector<unsigned short> *mcStatusFlag;
+      vector<int>     *mcParentage;
+      vector<int>     *mcStatus;
+      vector<float>   *mcCalIsoDR03;
+      vector<float>   *mcTrkIsoDR03;
+      vector<float>   *mcCalIsoDR04;
+      vector<float>   *mcTrkIsoDR04;
+      Int_t           nPho;
+      vector<float>   *phoE;
+      vector<float>   *phoEt;
+      vector<float>   *phoEta;
+      vector<float>   *phoPhi;
+      vector<float>   *phoSCE;
+      vector<float>   *phoSCRawE;
+      vector<float>   *phoSCEta;
+      vector<float>   *phoSCPhi;
+      vector<float>   *phoSCEtaWidth;
+      vector<float>   *phoSCPhiWidth;
+      vector<int>     *phohasPixelSeed;
+      vector<int>     *phoEleVeto;
+      vector<float>   *phoR9;
+      vector<float>   *phoHoverE;
+      vector<float>   *phoSigmaIEtaIEtaFull5x5;
+      vector<float>   *phoSigmaIEtaIPhiFull5x5;
+      vector<float>   *phoSigmaIPhiIPhiFull5x5;
+      vector<float>   *phoR9Full5x5;
+      vector<float>   *phoPFChIso;
+      vector<float>   *phoPFPhoIso;
+      vector<float>   *phoPFNeuIso;
+      vector<float>   *phoIDMVA;
+      Int_t           nEle;
+      vector<int>     *eleCharge;
+      vector<float>   *eleEn;
+      vector<float>   *eleSCEn;
+      vector<float>   *eleD0;
+      vector<float>   *eleDz;
+      vector<float>   *elePt;
+      vector<float>   *eleEta;
+      vector<float>   *elePhi;
+      vector<float>   *eleSCEta;
+      vector<float>   *eleSCPhi;
+      vector<float>   *eleSCRawEn;
+      vector<float>   *eleHoverE;
+      vector<float>   *eleEoverP;
+      vector<float>   *eleEoverPout;
+      vector<float>   *eleEoverPInv;
+      vector<float>   *eledEtaAtVtx;
+      vector<float>   *eledPhiAtVtx;
+      vector<float>   *eleSigmaIEtaIEtaFull5x5;
+      vector<float>   *eleSigmaIPhiIPhiFull5x5;
+      vector<int>     *eleConvVeto;
+      vector<int>     *eleMissHits;
+      vector<float>   *elePFChIso;
+      vector<float>   *elePFPhoIso;
+      vector<float>   *elePFNeuIso;
+      vector<float>   *elePFPUIso;
+      vector<float>   *eleIDMVANonTrg;
+      vector<float>   *eleIDMVATrg;
+      vector<float>   *eleR9Full5x5;
+      vector<int>     *eleEcalDrivenSeed;
+      vector<unsigned short> *eleIDbit;
 
-   // List of branches
-   TBranch        *b_run;   //!
-   TBranch        *b_event;   //!
-   TBranch        *b_lumis;   //!
-   TBranch        *b_isData;   //!
-   TBranch        *b_nVtx;   //!
-   TBranch        *b_nTrksPV;   //!
-   TBranch        *b_isPVGood;   //!
-   TBranch        *b_hasGoodVtx;   //!
-   TBranch        *b_vtx;   //!
-   TBranch        *b_vty;   //!
-   TBranch        *b_vtz;   //!
-   TBranch        *b_rho;   //!
-   TBranch        *b_rhoCentral;   //!
-   TBranch        *b_pthat;   //!
-   TBranch        *b_processID;   //!
-   TBranch        *b_genWeight;   //!
-   TBranch        *b_genHT;   //!
-   TBranch        *b_EventTag;   //!
-   TBranch        *b_nMC;   //!
-   TBranch        *b_mcPID;   //!
-   TBranch        *b_mcVtx;   //!
-   TBranch        *b_mcVty;   //!
-   TBranch        *b_mcVtz;   //!
-   TBranch        *b_mcPt;   //!
-   TBranch        *b_mcMass;   //!
-   TBranch        *b_mcEta;   //!
-   TBranch        *b_mcPhi;   //!
-   TBranch        *b_mcE;   //!
-   TBranch        *b_mcEt;   //!
-   TBranch        *b_mcGMomPID;   //!
-   TBranch        *b_mcMomPID;   //!
-   TBranch        *b_mcMomPt;   //!
-   TBranch        *b_mcMomMass;   //!
-   TBranch        *b_mcMomEta;   //!
-   TBranch        *b_mcMomPhi;   //!
-   TBranch        *b_mcIndex;   //!
-   TBranch        *b_mcStatusFlag;   //!
-   TBranch        *b_mcParentage;   //!
-   TBranch        *b_mcStatus;   //!
-   TBranch        *b_mcCalIsoDR03;   //!
-   TBranch        *b_mcTrkIsoDR03;   //!
-   TBranch        *b_mcCalIsoDR04;   //!
-   TBranch        *b_mcTrkIsoDR04;   //!
-   TBranch        *b_nPho;   //!
-   TBranch        *b_phoE;   //!
-   TBranch        *b_phoEt;   //!
-   TBranch        *b_phoEta;   //!
-   TBranch        *b_phoPhi;   //!
-   TBranch        *b_phoSCE;   //!
-   TBranch        *b_phoSCRawE;   //!
-   TBranch        *b_phoSCEta;   //!
-   TBranch        *b_phoSCPhi;   //!
-   TBranch        *b_phoSCEtaWidth;   //!
-   TBranch        *b_phoSCPhiWidth;   //!
-   TBranch        *b_phohasPixelSeed;   //!
-   TBranch        *b_phoEleVeto;   //!
-   TBranch        *b_phoR9;   //!
-   TBranch        *b_phoHoverE;   //!
-   TBranch        *b_phoSigmaIEtaIEtaFull5x5;   //!
-   TBranch        *b_phoSigmaIEtaIPhiFull5x5;   //!
-   TBranch        *b_phoSigmaIPhiIPhiFull5x5;   //!
-   TBranch        *b_phoR9Full5x5;   //!
-   TBranch        *b_phoPFChIso;   //!
-   TBranch        *b_phoPFPhoIso;   //!
-   TBranch        *b_phoPFNeuIso;   //!
-   TBranch        *b_phoIDMVA;   //!
-   TBranch        *b_nEle;   //!
-   TBranch        *b_eleCharge;   //!
-   TBranch        *b_eleEn;   //!
-   TBranch        *b_eleSCEn;   //!
-   TBranch        *b_eleD0;   //!
-   TBranch        *b_eleDz;   //!
-   TBranch        *b_elePt;   //!
-   TBranch        *b_eleEta;   //!
-   TBranch        *b_elePhi;   //!
-   TBranch        *b_eleSCEta;   //!
-   TBranch        *b_eleSCPhi;   //!
-   TBranch        *b_eleSCRawEn;   //!
-   TBranch        *b_eleHoverE;   //!
-   TBranch        *b_eleEoverP;   //!
-   TBranch        *b_eleEoverPout;   //!
-   TBranch        *b_eleEoverPInv;   //!
-   TBranch        *b_eledEtaAtVtx;   //!
-   TBranch        *b_eledPhiAtVtx;   //!
-   TBranch        *b_eleSigmaIEtaIEtaFull5x5;   //!
-   TBranch        *b_eleSigmaIPhiIPhiFull5x5;   //!
-   TBranch        *b_eleConvVeto;   //!
-   TBranch        *b_eleMissHits;   //!
-   TBranch        *b_elePFChIso;   //!
-   TBranch        *b_elePFPhoIso;   //!
-   TBranch        *b_elePFNeuIso;   //!
-   TBranch        *b_elePFPUIso;   //!
-   TBranch        *b_eleIDMVANonTrg;   //!
-   TBranch        *b_eleIDMVATrg;   //!
-   TBranch        *b_eleR9Full5x5;   //!
-   TBranch        *b_eleEcalDrivenSeed;   //!
-   TBranch        *b_eleIDbit;   //!
+      // List of branches
+      TBranch        *b_run;   //!
+      TBranch        *b_event;   //!
+      TBranch        *b_lumis;   //!
+      TBranch        *b_isData;   //!
+      TBranch        *b_nVtx;   //!
+      TBranch        *b_nTrksPV;   //!
+      TBranch        *b_isPVGood;   //!
+      TBranch        *b_hasGoodVtx;   //!
+      TBranch        *b_vtx;   //!
+      TBranch        *b_vty;   //!
+      TBranch        *b_vtz;   //!
+      TBranch        *b_rho;   //!
+      TBranch        *b_rhoCentral;   //!
+      TBranch        *b_pthat;   //!
+      TBranch        *b_processID;   //!
+      TBranch        *b_genWeight;   //!
+      TBranch        *b_genHT;   //!
+      TBranch        *b_EventTag;   //!
+      TBranch        *b_nMC;   //!
+      TBranch        *b_mcPID;   //!
+      TBranch        *b_mcVtx;   //!
+      TBranch        *b_mcVty;   //!
+      TBranch        *b_mcVtz;   //!
+      TBranch        *b_mcPt;   //!
+      TBranch        *b_mcMass;   //!
+      TBranch        *b_mcEta;   //!
+      TBranch        *b_mcPhi;   //!
+      TBranch        *b_mcE;   //!
+      TBranch        *b_mcEt;   //!
+      TBranch        *b_mcGMomPID;   //!
+      TBranch        *b_mcMomPID;   //!
+      TBranch        *b_mcMomPt;   //!
+      TBranch        *b_mcMomMass;   //!
+      TBranch        *b_mcMomEta;   //!
+      TBranch        *b_mcMomPhi;   //!
+      TBranch        *b_mcIndex;   //!
+      TBranch        *b_mcStatusFlag;   //!
+      TBranch        *b_mcParentage;   //!
+      TBranch        *b_mcStatus;   //!
+      TBranch        *b_mcCalIsoDR03;   //!
+      TBranch        *b_mcTrkIsoDR03;   //!
+      TBranch        *b_mcCalIsoDR04;   //!
+      TBranch        *b_mcTrkIsoDR04;   //!
+      TBranch        *b_nPho;   //!
+      TBranch        *b_phoE;   //!
+      TBranch        *b_phoEt;   //!
+      TBranch        *b_phoEta;   //!
+      TBranch        *b_phoPhi;   //!
+      TBranch        *b_phoSCE;   //!
+      TBranch        *b_phoSCRawE;   //!
+      TBranch        *b_phoSCEta;   //!
+      TBranch        *b_phoSCPhi;   //!
+      TBranch        *b_phoSCEtaWidth;   //!
+      TBranch        *b_phoSCPhiWidth;   //!
+      TBranch        *b_phohasPixelSeed;   //!
+      TBranch        *b_phoEleVeto;   //!
+      TBranch        *b_phoR9;   //!
+      TBranch        *b_phoHoverE;   //!
+      TBranch        *b_phoSigmaIEtaIEtaFull5x5;   //!
+      TBranch        *b_phoSigmaIEtaIPhiFull5x5;   //!
+      TBranch        *b_phoSigmaIPhiIPhiFull5x5;   //!
+      TBranch        *b_phoR9Full5x5;   //!
+      TBranch        *b_phoPFChIso;   //!
+      TBranch        *b_phoPFPhoIso;   //!
+      TBranch        *b_phoPFNeuIso;   //!
+      TBranch        *b_phoIDMVA;   //!
+      TBranch        *b_nEle;   //!
+      TBranch        *b_eleCharge;   //!
+      TBranch        *b_eleEn;   //!
+      TBranch        *b_eleSCEn;   //!
+      TBranch        *b_eleD0;   //!
+      TBranch        *b_eleDz;   //!
+      TBranch        *b_elePt;   //!
+      TBranch        *b_eleEta;   //!
+      TBranch        *b_elePhi;   //!
+      TBranch        *b_eleSCEta;   //!
+      TBranch        *b_eleSCPhi;   //!
+      TBranch        *b_eleSCRawEn;   //!
+      TBranch        *b_eleHoverE;   //!
+      TBranch        *b_eleEoverP;   //!
+      TBranch        *b_eleEoverPout;   //!
+      TBranch        *b_eleEoverPInv;   //!
+      TBranch        *b_eledEtaAtVtx;   //!
+      TBranch        *b_eledPhiAtVtx;   //!
+      TBranch        *b_eleSigmaIEtaIEtaFull5x5;   //!
+      TBranch        *b_eleSigmaIPhiIPhiFull5x5;   //!
+      TBranch        *b_eleConvVeto;   //!
+      TBranch        *b_eleMissHits;   //!
+      TBranch        *b_elePFChIso;   //!
+      TBranch        *b_elePFPhoIso;   //!
+      TBranch        *b_elePFNeuIso;   //!
+      TBranch        *b_elePFPUIso;   //!
+      TBranch        *b_eleIDMVANonTrg;   //!
+      TBranch        *b_eleIDMVATrg;   //!
+      TBranch        *b_eleR9Full5x5;   //!
+      TBranch        *b_eleEcalDrivenSeed;   //!
+      TBranch        *b_eleIDbit;   //!
 
-   getPhotonIsoEfficency(TTree *tree=0);
-   virtual ~getPhotonIsoEfficency();
-   virtual Int_t    Cut(Long64_t entry);
-   virtual Int_t    GetEntry(Long64_t entry);
-   virtual Long64_t LoadTree(Long64_t entry);
-   virtual void     Init(TTree *tree);
-   virtual void     Loop();
-   virtual Bool_t   Notify();
-   virtual void     Show(Long64_t entry = -1);
+      getPhotonIsoEfficency(TTree *tree=0);
+      virtual ~getPhotonIsoEfficency();
+      virtual Int_t    Cut(Long64_t entry);
+      virtual Int_t    GetEntry(Long64_t entry);
+      virtual Long64_t LoadTree(Long64_t entry);
+      virtual void     Init(TTree *tree);
+      virtual void     Loop();
+      virtual Bool_t   Notify();
+      virtual void     Show(Long64_t entry = -1);
+      virtual Double_t EAneutral(Double_t eta);
+      virtual Double_t EAcharged(Double_t eta);
+      virtual Double_t EAphoton(Double_t eta);
+      virtual bool     getID(int jpho);
+      virtual bool     getIso(int jpho);
+      virtual double   dR(double eta1, double phi1, double eta2, double phi2);
+      virtual int      MCTruthMatch(int jele);
 };
 
 #endif
@@ -239,12 +246,12 @@ public :
 #ifdef getPhotonIsoEfficency_cxx
 getPhotonIsoEfficency::getPhotonIsoEfficency(TTree *tree) : fChain(0) 
 {
-// if parameter tree is not specified (or zero), connect the file
-// used to generate this class and read the Tree.
+   // if parameter tree is not specified (or zero), connect the file
+   // used to generate this class and read the Tree.
    if (tree == 0) {
       TFile *f = (TFile*)gROOT->GetListOfFiles()->FindObject("../hgg_ggtree_mc.root");
       if (!f || !f->IsOpen()) {
-         f = new TFile("../hgg_ggtree_mc.root");
+	 f = new TFile("../hgg_ggtree_mc.root");
       }
       TDirectory * dir = (TDirectory*)f->Get("../hgg_ggtree_mc.root:/ggNtuplizer");
       dir->GetObject("EventTree",tree);
@@ -261,13 +268,13 @@ getPhotonIsoEfficency::~getPhotonIsoEfficency()
 
 Int_t getPhotonIsoEfficency::GetEntry(Long64_t entry)
 {
-// Read contents of entry.
+   // Read contents of entry.
    if (!fChain) return 0;
    return fChain->GetEntry(entry);
 }
 Long64_t getPhotonIsoEfficency::LoadTree(Long64_t entry)
 {
-// Set the environment to read one entry
+   // Set the environment to read one entry
    if (!fChain) return -5;
    Long64_t centry = fChain->LoadTree(entry);
    if (centry < 0) return centry;
@@ -485,16 +492,59 @@ Bool_t getPhotonIsoEfficency::Notify()
 
 void getPhotonIsoEfficency::Show(Long64_t entry)
 {
-// Print contents of entry.
-// If entry is not specified, print current entry
+   // Print contents of entry.
+   // If entry is not specified, print current entry
    if (!fChain) return;
    fChain->Show(entry);
 }
 Int_t getPhotonIsoEfficency::Cut(Long64_t entry)
 {
-// This function may be called from Loop.
-// returns  1 if entry is accepted.
-// returns -1 otherwise.
+   // This function may be called from Loop.
+   // returns  1 if entry is accepted.
+   // returns -1 otherwise.
    return 1;
 }
+
+
+// Effective area to be needed in PF Iso for photon ID -- SPRING15 bx25ns
+Double_t getPhotonIsoEfficency::EAcharged(Double_t eta){
+   Float_t EffectiveArea = 0.0;
+   if(fabs(eta) >= 0.0   && fabs(eta) < 1.0   ) EffectiveArea = 0.0;
+   if(fabs(eta) >= 1.0   && fabs(eta) < 1.479 ) EffectiveArea = 0.0;
+   if(fabs(eta) >= 1.479 && fabs(eta) < 2.0   ) EffectiveArea = 0.0;
+   if(fabs(eta) >= 2.0   && fabs(eta) < 2.2   ) EffectiveArea = 0.0;
+   if(fabs(eta) >= 2.2   && fabs(eta) < 2.3   ) EffectiveArea = 0.0;
+   if(fabs(eta) >= 2.3   && fabs(eta) < 2.4   ) EffectiveArea = 0.0;
+   if(fabs(eta) >= 2.4                        ) EffectiveArea = 0.0;
+
+   return EffectiveArea;
+}       
+
+Double_t getPhotonIsoEfficency::EAneutral(Double_t eta){
+   Float_t EffectiveArea = 0.;
+   if(fabs(eta) >= 0.0   && fabs(eta) < 1.0   ) EffectiveArea = 0.0599;
+   if(fabs(eta) >= 1.0   && fabs(eta) < 1.479 ) EffectiveArea = 0.0819;
+   if(fabs(eta) >= 1.479 && fabs(eta) < 2.0   ) EffectiveArea = 0.0696;
+   if(fabs(eta) >= 2.0   && fabs(eta) < 2.2   ) EffectiveArea = 0.0360;
+   if(fabs(eta) >= 2.2   && fabs(eta) < 2.3   ) EffectiveArea = 0.0360;
+   if(fabs(eta) >= 2.3   && fabs(eta) < 2.4   ) EffectiveArea = 0.0462;
+   if(fabs(eta) >= 2.4                        ) EffectiveArea = 0.0656;
+
+   return EffectiveArea;
+}       
+
+Double_t getPhotonIsoEfficency::EAphoton(Double_t eta){
+   Float_t EffectiveArea = 0.;
+   if(fabs(eta) >= 0.0   && fabs(eta) < 1.0   ) EffectiveArea = 0.1271;
+   if(fabs(eta) >= 1.0   && fabs(eta) < 1.479 ) EffectiveArea = 0.1101;
+   if(fabs(eta) >= 1.479 && fabs(eta) < 2.0   ) EffectiveArea = 0.0756;
+   if(fabs(eta) >= 2.0   && fabs(eta) < 2.2   ) EffectiveArea = 0.1175;
+   if(fabs(eta) >= 2.2   && fabs(eta) < 2.3   ) EffectiveArea = 0.1498;
+   if(fabs(eta) >= 2.3   && fabs(eta) < 2.4   ) EffectiveArea = 0.1857;
+   if(fabs(eta) >= 2.4                        ) EffectiveArea = 0.2183;
+
+   return EffectiveArea;
+}  
+
+
 #endif // #ifdef getPhotonIsoEfficency_cxx

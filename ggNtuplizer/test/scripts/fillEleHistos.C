@@ -59,7 +59,6 @@ int fillEleHistos::MCTruthMatch(int jele){
    for(int imc = 0; imc < nMC; ++imc){
       if(fabs((*mcPID)[imc]) != 11) continue;
       if((*mcPt)[imc] < 10) continue;
-      if(!((*mcStatusFlag)[imc]>>1&1)) continue;
       bool match_gen = dR((*mcEta)[imc], (*mcPhi)[imc], (*eleSCEta)[jele], (*eleSCPhi)[jele]) < 0.05;
       if(match_gen && eleInd < 0) eleInd = imc;
    }

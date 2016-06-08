@@ -29,9 +29,9 @@ void fillPhoHistos::Loop()
 	 if((*phoEt)[ipho] < 15) continue;
 	 int mc_truth = MCTruthMatch(ipho);
 	 ////for signal prompt photon when reconstructed photon match to gen photon
-	 if(mc_truth != 1) continue;
+	 if(mc_truth != 1 ) continue;
 	 //    //for bkgs, 
-	 //if( !(mc_truth==2 ) continue;
+	 //if( !(mc_truth==2 || mc_truth==3 ) continue;
 	 // // Fill histograms
 	 hPt->Fill( (*phoEt)[ipho] );
 	 hEta->Fill( (*phoSCEta)[ipho] );
@@ -59,15 +59,18 @@ int fillPhoHistos::MCTruthMatch(int jpho){
    for(int imc = 0; imc < nMC; ++imc){
       if( mcPID->at(imc) != 22) continue;
       if( mcPt->at(imc) < 20) continue;
-      if( !((*mcStatusFlag)[imc]>>1&1) ) continue;
       bool match_gen = dR((*mcEta)[imc], (*mcPhi)[imc], (*phoSCEta)[jpho], (*phoSCPhi)[jpho]) < 0.05;
       if(match_gen && phoInd < 0) phoInd = imc;
    }
 
-   if(phoInd >= 0)
-      return 1;
-   else
-      return 2;
+   if(phoInd >= 0){
+      if(((*mcParentage)[phoInd]&4)==0) return 1;
+      else
+	 return 2;
+   } else {
+      return 3;
+   }
+
 }
 
 
