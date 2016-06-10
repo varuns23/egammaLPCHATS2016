@@ -260,6 +260,7 @@ public :
    virtual double   dR(double eta1, double phi1, double eta2, double phi2);
    virtual int      MCTruthMatch(int jele);
    virtual bool     eleCut(int i);
+   virtual double   getMass(int i, int j);
 };
 
 #endif
