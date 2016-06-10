@@ -90,10 +90,9 @@ bool makeDiElectronMass::eleCut(int i){
  
    bool pass = false;
    if (fabs((*eleSCEta)[i]) < 1.4442) {
-      if((*eleSigmaIEtaIEtaFull5x5)[i] < 0.0114 &&  (*eleHoverE)[i] < 0.181 ) pass = false;
-      if((*eleSigmaIEtaIEtaFull5x5)[i] < 0.0114 ) pass = true;
-   } else {
-      if((*eleSigmaIEtaIEtaFull5x5)[i] < 0.0352 &&  (*eleHoverE)[i] < 0.116 ) pass = false;
+      if((*eleSigmaIEtaIEtaFull5x5)[i] < 0.0114 &&  (*eleHoverE)[i] < 0.181 ) pass = true;
+      } else {
+      if((*eleSigmaIEtaIEtaFull5x5)[i] < 0.0352 &&  (*eleHoverE)[i] < 0.116 ) pass = true;
    }
    return pass;
 }
